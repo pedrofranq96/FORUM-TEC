@@ -1,0 +1,44 @@
+﻿@model IEnumerable<NEGOCIO.Models.Postagem>
+
+@{
+    ViewData["Title"] = "Feed";
+}
+
+<div style="background-color: #9DBBAE; display:flex ; justify-content:center" >
+    <div>
+        <h1>Novas publicações</h1>
+    </div>
+    
+
+
+</div>
+
+<div>
+     <p>
+         <button type="button" class="btn btn-outline-info"><a asp-action="Create">Criar novo Post</a></button>
+         
+     </p>
+</div>
+
+<br />
+
+@foreach (var item in Model) {
+
+            <div class="card w-50 mx-auto mb-3" style="background-color: #D5D6AA">
+              <img src="@item.CaminhoImg" class="card-img-top" alt="Foto">
+              <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.EmailUsuario)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Texto)</p>
+                <p class="card-text"><small class="text-muted">@Html.DisplayFor(modelItem => item.HoraPost)</small></p>
+                 @if (item.EmailUsuario == ViewBag.userEmail)
+                {
+                    <span>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    </span>
+                }
+              </div>
+            </div>
+        }   
+

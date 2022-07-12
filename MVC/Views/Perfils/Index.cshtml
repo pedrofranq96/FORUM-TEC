@@ -1,0 +1,40 @@
+﻿@model NEGOCIO.Models.Perfil
+
+
+@if (ViewBag.profile == false)
+{
+	<a asp-action="Create">Criar novo perfil</a>
+}
+else
+{
+
+	<h1>Perfil de @Html.DisplayFor(model => model.EmailUsuario)</h1>
+
+	<div class="card mb-3 mx-auto" style="max-width: 540px; background-color: #D5D6AA">
+		<div class="row g-0">
+			<div class="col-md-4">
+				<img src="@Model.CaminhoImg" class="img-fluid rounded-start" alt="Foto de perfil">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title">@Model.EmailUsuario</h5>
+					<p class="card-text"> @Model.Texto</p>
+					<p class="card-text">Aniversário: @Model.Aniversario.Date</p>
+					<p class="card-text"><small class="text-muted">Perfil criado em: @Model.Criacao</small></p>
+				</div>
+			</div>
+		</div>
+		<p><a asp-action="Edit" asp-route-id="@Model.EmailUsuario">Editar</a></p>
+		<p><a asp-action="Delete" asp-route-id="@Model.EmailUsuario">Remover</a></p>
+	</div>
+
+}
+
+
+
+
+
+
+
+
+

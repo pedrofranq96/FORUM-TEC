@@ -1,0 +1,84 @@
+﻿@model CadastroViewModel
+
+
+<h1>@TempData["Cadastro"] </h1>
+
+<h1>@TempData["Error"]</h1>
+
+
+<table class="table">
+
+	<tr>
+
+		<div class="row">
+
+			<div class="col-6 col-md-6 col-lg-6 mx-auto">
+
+				<h3>Cadastro</h3>
+				
+				<form asp-controller="Home" asp-action="Cadastro" method="post" role="form">
+					<hr />
+
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+					<div class="form-group">
+						<label asp-for="Nome" class="col-md-2 control-label"></label>
+						<div class="col-4 col-md-4 col-lg-4">
+							<input asp-for="Nome" class="form-control"/>
+							<span asp-validation-for="Nome" class="text-danger"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="Email" class="col-md-2 control-label"></label>
+						<div class="col-4 col-md-4 col-lg-4">
+							<input asp-for="Email" class="form-control"/>
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<label asp-for="Senha" class="col-md-2 control-label"></label>
+						<div class="col-4 col-md-4 col-lg-4">
+							<input asp-for="Senha" class="form-control"/>
+							<span asp-validation-for="Senha" class="text-danger"></span>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label asp-for="ConfirmaSenha" class="col-md-2 control-label"></label>
+						<div class="col-4 col-md-4 col-lg-4">
+							<input asp-for="ConfirmaSenha" class="form-control"/>
+							<span asp-validation-for="ConfirmaSenha" class="text-danger"></span>
+						</div>
+					</div>
+
+					<hr />
+
+					<div class="form-group">
+						<div class="col-6 col-md-6 col-lg-6">
+							<input type="submit" class="btn btn-success" value="Cadastrar"/>
+						</div>
+
+					</div>
+
+
+				</form>
+
+
+
+
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</tr>
+
+
+</table>
